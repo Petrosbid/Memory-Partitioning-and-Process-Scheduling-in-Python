@@ -21,9 +21,10 @@ This repository contains a Python implementation of memory partitioning and proc
 You can install the `colorama` library using pip:
 ```bash
 pip install colorama
-Usage
+```bash
+##Usage
 Clone the repository:
-bash```
+bash
  
 git clone https://github.com/yourusername/memory-partitioning-scheduling.git
 cd memory-partitioning-scheduling

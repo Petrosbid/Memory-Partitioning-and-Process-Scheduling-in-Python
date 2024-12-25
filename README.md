@@ -21,34 +21,37 @@ This repository contains a Python implementation of memory partitioning and proc
 You can install the `colorama` library using pip:
 ```bash
 pip install colorama
-```bash
+```
 ##Usage
 Clone the repository:
-bash
- 
+
+``` 
 git clone https://github.com/yourusername/memory-partitioning-scheduling.git
 cd memory-partitioning-scheduling
+```
 Run the script:
-```bash
- 
+```
 python scheduler.py
+```
 Follow the prompts:
 Enter the total memory size.
 Enter the number of processes.
 Enter the memory size and duration time for each process.
 Example:
+``` 
+Enter the total memory size: 7
+Enter the number of processes: 5
+Enter the memory size & duration time for process 1: 1 2
+Enter the memory size & duration time for process 2: 1 3
+Enter the memory size & duration time for process 3: 2 1
+Enter the memory size & duration time for process 4: 3 1
+Enter the memory size & duration time for process 5: 3 4
 
-arduino
- 
-Enter the total memory size: 16
-Enter the number of processes: 3
-Enter the memory size & duration time for process 1: 2 5
-Enter the memory size & duration time for process 2: 4 3
-Enter the memory size & duration time for process 3: 8 2
-Code Explanation
-Partition Class
-python
- 
+```
+
+###Code Explanation
+```
+Partition Class 
 class Partition:
     def __init__(self, size):
         self.size = size
@@ -65,20 +68,20 @@ class Partition:
 
     def __repr__(self):
         return f"{self.size}"
+```
 Represents a memory partition.
 Methods to allocate and free the partition.
+```
 Process Class
-python
- 
 class Process:
     def __init__(self, pid, size, duration):
         self.pid = pid
         self.size = size
         self.duration = duration
+```
 Represents a process with a process ID, size, and duration.
 Creating Partitions
-python
- 
+ ```
 def create_partitions(memory_size):
     partitions = []
     size = 1
@@ -88,18 +91,19 @@ def create_partitions(memory_size):
         size *= 2
     partitions.append(Partition(memory_size))
     return sorted(partitions, key=lambda partition: partition.size)
+```
 Dynamically creates memory partitions based on the given total memory size.
 Freeing Partitions
-python
- 
+ ```
 def free_partition(partition, duration):
     time.sleep(duration)
     partition.free()
+```
 Frees a partition after a certain duration.
 Process Scheduling Methods
-Single Queue
-python
- 
+
+### Single Queue
+```
 def single_queue(partitions, processes):
     queue = processes[:]
     start_time = time.time()
@@ -123,10 +127,11 @@ def single_queue(partitions, processes):
     utilization = int((sum(p.size * p.duration for p in processes) / (memory_size * total_time))*100) if total_time > 0 else 0
 
     return utilization, throughput
+```
 Allocates processes to partitions using a single queue.
-Multiple Queue
-python
- 
+### Multiple Queue
+
+```
 def multiple_queue(partitions, processes):
     queues = [Queue() for _ in partitions]
 
@@ -152,27 +157,32 @@ def multiple_queue(partitions, processes):
     utilization = (sum(p.size * p.duration for p in processes) / (memory_size * total_time)) * 100 if total_time > 0 else 0
 
     return utilization, throughput
+```
 Allocates processes to partitions using multiple queues, one for each partition.
 Example Output
-arduino
- 
+ ```
 -------Partitions size-------
-[1, 2, 4, 8, 1]
+[1, 2, 4]
 
 -------Enter your processes informations-------
-Enter the memory size & duration time for process 1: 2 5
-Enter the memory size & duration time for process 2: 4 3
-Enter the memory size & duration time for process 3: 8 2
+Enter the memory size & duration time for process 1: 1 2
+Enter the memory size & duration time for process 2: 1 3
+Enter the memory size & duration time for process 3: 2 1
+Enter the memory size & duration time for process 4: 3 1
+Enter the memory size & duration time for process 5: 3 4
 
 -------Running in single queue method-------
-Utilization: 70%
-Throughput: 3 / 10
+Utilization: 39%
+Throughput: 5 / 8
 
 -------Running in multiple queue method-------
-Utilization: 75%
-Throughput: 3 / 8
-Contribution
+Utilization: 62%
+Throughput: 5 / 5
+```
+![Screenshot 2024-12-21 185723](https://github.com/user-attachments/assets/945f80c2-2ef3-49df-9ef3-994303d588c8)
+
+### Contribution
 Feel free to submit issues or pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
-License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.

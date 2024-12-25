@@ -1,5 +1,10 @@
 # Memory-Partitioning-and-Process-Scheduling-in-Python
 memory management with fixed partition technique in two single queue and multiple queue method.
+
+## Overview
+
+This repository contains a Python implementation of memory partitioning and process scheduling. The code demonstrates two methods for allocating processes to memory partitions: single queue and multiple queue. By using threading and queues, the code efficiently manages process allocation and deallocation, aiming to optimize memory utilization and throughput.
+
 ## Features
 
 - **Dynamic Memory Partitioning**: The memory is partitioned dynamically based on the given size.
@@ -19,12 +24,12 @@ pip install colorama
 Usage
 Clone the repository:
 bash
-Copy code
+ 
 git clone https://github.com/yourusername/memory-partitioning-scheduling.git
 cd memory-partitioning-scheduling
 Run the script:
 bash
-Copy code
+ 
 python scheduler.py
 Follow the prompts:
 Enter the total memory size.
@@ -33,7 +38,7 @@ Enter the memory size and duration time for each process.
 Example:
 
 arduino
-Copy code
+ 
 Enter the total memory size: 16
 Enter the number of processes: 3
 Enter the memory size & duration time for process 1: 2 5
@@ -42,7 +47,7 @@ Enter the memory size & duration time for process 3: 8 2
 Code Explanation
 Partition Class
 python
-Copy code
+ 
 class Partition:
     def __init__(self, size):
         self.size = size
@@ -63,7 +68,7 @@ Represents a memory partition.
 Methods to allocate and free the partition.
 Process Class
 python
-Copy code
+ 
 class Process:
     def __init__(self, pid, size, duration):
         self.pid = pid
@@ -72,7 +77,7 @@ class Process:
 Represents a process with a process ID, size, and duration.
 Creating Partitions
 python
-Copy code
+ 
 def create_partitions(memory_size):
     partitions = []
     size = 1
@@ -85,7 +90,7 @@ def create_partitions(memory_size):
 Dynamically creates memory partitions based on the given total memory size.
 Freeing Partitions
 python
-Copy code
+ 
 def free_partition(partition, duration):
     time.sleep(duration)
     partition.free()
@@ -93,7 +98,7 @@ Frees a partition after a certain duration.
 Process Scheduling Methods
 Single Queue
 python
-Copy code
+ 
 def single_queue(partitions, processes):
     queue = processes[:]
     start_time = time.time()
@@ -120,7 +125,7 @@ def single_queue(partitions, processes):
 Allocates processes to partitions using a single queue.
 Multiple Queue
 python
-Copy code
+ 
 def multiple_queue(partitions, processes):
     queues = [Queue() for _ in partitions]
 
@@ -149,7 +154,7 @@ def multiple_queue(partitions, processes):
 Allocates processes to partitions using multiple queues, one for each partition.
 Example Output
 arduino
-Copy code
+ 
 -------Partitions size-------
 [1, 2, 4, 8, 1]
 
@@ -167,3 +172,6 @@ Utilization: 75%
 Throughput: 3 / 8
 Contribution
 Feel free to submit issues or pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.

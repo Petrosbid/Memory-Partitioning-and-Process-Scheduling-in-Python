@@ -22,7 +22,7 @@ You can install the `colorama` library using pip:
 ```bash
 pip install colorama
 ```
-##Usage
+## Usage
 Clone the repository:
 
 ``` 
@@ -37,19 +37,9 @@ Follow the prompts:
 Enter the total memory size.
 Enter the number of processes.
 Enter the memory size and duration time for each process.
-Example:
-``` 
-Enter the total memory size: 7
-Enter the number of processes: 5
-Enter the memory size & duration time for process 1: 1 2
-Enter the memory size & duration time for process 2: 1 3
-Enter the memory size & duration time for process 3: 2 1
-Enter the memory size & duration time for process 4: 3 1
-Enter the memory size & duration time for process 5: 3 4
 
-```
 
-###Code Explanation
+## Code Explanation
 ```
 Partition Class 
 class Partition:
@@ -71,6 +61,7 @@ class Partition:
 ```
 Represents a memory partition.
 Methods to allocate and free the partition.
+
 ```
 Process Class
 class Process:
@@ -81,6 +72,7 @@ class Process:
 ```
 Represents a process with a process ID, size, and duration.
 Creating Partitions
+
  ```
 def create_partitions(memory_size):
     partitions = []
@@ -94,6 +86,7 @@ def create_partitions(memory_size):
 ```
 Dynamically creates memory partitions based on the given total memory size.
 Freeing Partitions
+
  ```
 def free_partition(partition, duration):
     time.sleep(duration)
@@ -129,8 +122,8 @@ def single_queue(partitions, processes):
     return utilization, throughput
 ```
 Allocates processes to partitions using a single queue.
-### Multiple Queue
 
+### Multiple Queue
 ```
 def multiple_queue(partitions, processes):
     queues = [Queue() for _ in partitions]
@@ -159,26 +152,8 @@ def multiple_queue(partitions, processes):
     return utilization, throughput
 ```
 Allocates processes to partitions using multiple queues, one for each partition.
-Example Output
- ```
--------Partitions size-------
-[1, 2, 4]
 
--------Enter your processes informations-------
-Enter the memory size & duration time for process 1: 1 2
-Enter the memory size & duration time for process 2: 1 3
-Enter the memory size & duration time for process 3: 2 1
-Enter the memory size & duration time for process 4: 3 1
-Enter the memory size & duration time for process 5: 3 4
-
--------Running in single queue method-------
-Utilization: 39%
-Throughput: 5 / 8
-
--------Running in multiple queue method-------
-Utilization: 62%
-Throughput: 5 / 5
-```
+## Example 
 ![Screenshot 2024-12-21 185723](https://github.com/user-attachments/assets/945f80c2-2ef3-49df-9ef3-994303d588c8)
 
 ### Contribution

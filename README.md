@@ -1,31 +1,28 @@
 # Memory-Partitioning-and-Process-Scheduling-in-Python
 memory management with fixed partition technique in two single queue and multiple queue method.
-Overview
+**Overview**
 This repository contains a Python implementation of memory partitioning and process scheduling. The code demonstrates two methods for allocating processes to memory partitions: single queue and multiple queue. By using threading and queues, the code efficiently manages process allocation and deallocation, aiming to optimize memory utilization and throughput.
 
-Features
+**Features**
 Dynamic Memory Partitioning: The memory is partitioned dynamically based on the given size.
 Process Scheduling: Two methods of scheduling (single queue and multiple queue) are implemented.
 Threading: Utilizes Python's threading module to handle process allocation and deallocation concurrently.
 Performance Metrics: Calculates memory utilization and throughput for both scheduling methods.
 Colorful Output: Uses the colorama library to enhance console output for better readability.
-Requirements
+**Requirements**
 Python 3.x
 colorama library
 You can install the colorama library using pip:
 
 bash
-Copy code
 pip install colorama
-Usage
+**Usage**
 Clone the repository:
 bash
-Copy code
 git clone https://github.com/yourusername/memory-partitioning-scheduling.git
 cd memory-partitioning-scheduling
-Run the script:
+**Run the script:**
 bash
-Copy code
 python scheduler.py
 Follow the prompts:
 Enter the total memory size.
@@ -34,7 +31,6 @@ Enter the memory size and duration time for each process.
 Example:
 
 arduino
-Copy code
 Enter the total memory size: 16
 Enter the number of processes: 3
 Enter the memory size & duration time for process 1: 2 5

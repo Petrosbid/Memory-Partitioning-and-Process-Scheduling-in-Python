@@ -29,15 +29,15 @@ Clone the repository:
 git clone https://github.com/yourusername/memory-partitioning-scheduling.git
 cd memory-partitioning-scheduling
 ```
-Run the script:
-```
-python scheduler.py
-```
+
 Follow the prompts:
 Enter the total memory size.
 Enter the number of processes.
 Enter the memory size and duration time for each process.
 
+
+## Example 
+![Screenshot 2024-12-21 185723](https://github.com/user-attachments/assets/945f80c2-2ef3-49df-9ef3-994303d588c8)
 
 ## Code Explanation
 ```
@@ -152,9 +152,6 @@ def multiple_queue(partitions, processes):
     return utilization, throughput
 ```
 Allocates processes to partitions using multiple queues, one for each partition.
-
-## Example 
-![Screenshot 2024-12-21 185723](https://github.com/user-attachments/assets/945f80c2-2ef3-49df-9ef3-994303d588c8)
 
 ### Contribution
 Feel free to submit issues or pull requests. For major changes, please open an issue first to discuss what you would like to change.
